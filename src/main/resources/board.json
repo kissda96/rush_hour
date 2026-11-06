@@ -1,0 +1,20 @@
+{
+  "rows": 6,
+  "cols": 12,
+  "vehicles": [
+    {
+      "id": "A",
+      "row": 2,
+      "col": 2,
+      "length": 2,
+      "orientation": "HORIZONTAL"
+    },
+    {
+      "id": "B",
+      "row": 4,
+      "col": 9,
+      "length": 2,
+      "orientation": "HORIZONTAL"
+    }
+  ]
+}
