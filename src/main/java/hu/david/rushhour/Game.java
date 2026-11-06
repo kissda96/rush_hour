@@ -4,6 +4,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.InputStream;
 
+import java.util.Scanner;
+
 public class Game {
 
     public void start() {
@@ -40,6 +42,40 @@ public class Game {
 
             System.out.println();
             board.printBoard();
+            Scanner scanner = new Scanner(System.in);
+
+            System.out.println();
+            System.out.print("Parancs: ");
+
+            String command = scanner.nextLine();
+
+            String[] parts = command.split(" ");
+
+            if (parts.length == 3 && parts[0].equalsIgnoreCase("move")) {
+
+                String vehicleId = parts[1];
+                int distance = Integer.parseInt(parts[2]);
+
+                for (Vehicle vehicle : gameState.getVehicles()) {
+
+                    if (vehicle.getId().equalsIgnoreCase(vehicleId)) {
+
+                        if (vehicle.getOrientation() == Orientation.HORIZONTAL) {
+                            vehicle.setCol(vehicle.getCol() + distance);
+                        } else {
+                            vehicle.setRow(vehicle.getRow() + distance);
+                        }
+
+                        break;
+                    }
+                }
+
+                board.clearBoard();
+                board.placeVehicles(gameState.getVehicles());
+
+                System.out.println();
+                board.printBoard();
+            }
 
         } catch (Exception e) {
             System.out.println("Hiba a pálya betöltésekor!");

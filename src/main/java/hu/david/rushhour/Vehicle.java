@@ -39,4 +39,12 @@ public class Vehicle {
     public Orientation getOrientation() {
         return orientation;
     }
+
+    public void setRow(int row) {
+        this.row = row;
+    }
+
+    public void setCol(int col) {
+        this.col = col;
+    }
 }

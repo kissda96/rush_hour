@@ -57,4 +57,13 @@ public class Board {
             System.out.println();
         }
     }
+
+    public void clearBoard() {
+
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < cols; c++) {
+                board[r][c] = '.';
+            }
+        }
+    }
 }
