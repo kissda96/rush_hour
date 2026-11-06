@@ -31,6 +31,15 @@ public class Game {
                                 ")"
                 );
             }
+            Board board =
+                    new Board(
+                            gameState.getRows(),
+                            gameState.getCols());
+
+            board.placeVehicles(gameState.getVehicles());
+
+            System.out.println();
+            board.printBoard();
 
         } catch (Exception e) {
             System.out.println("Hiba a pálya betöltésekor!");
