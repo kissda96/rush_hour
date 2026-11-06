@@ -61,9 +61,30 @@ public class Game {
                     if (vehicle.getId().equalsIgnoreCase(vehicleId)) {
 
                         if (vehicle.getOrientation() == Orientation.HORIZONTAL) {
-                            vehicle.setCol(vehicle.getCol() + distance);
+
+                            int newCol = vehicle.getCol() + distance;
+
+                            if (newCol >= 0 &&
+                                    newCol + vehicle.getLength() <= gameState.getCols()) {
+
+                                vehicle.setCol(newCol);
+
+                            } else {
+                                System.out.println("Ervenytelen lepes!");
+                            }
+
                         } else {
-                            vehicle.setRow(vehicle.getRow() + distance);
+
+                            int newRow = vehicle.getRow() + distance;
+
+                            if (newRow >= 0 &&
+                                    newRow + vehicle.getLength() <= gameState.getRows()) {
+
+                                vehicle.setRow(newRow);
+
+                            } else {
+                                System.out.println("Ervenytelen lepes!");
+                            }
                         }
 
                         break;
