@@ -75,7 +75,38 @@ public class Game {
                                 if (newCol >= 0 &&
                                         newCol + vehicle.getLength() <= gameState.getCols()) {
 
-                                    vehicle.setCol(newCol);
+                                    boolean collision = false;
+
+                                    for (Vehicle other : gameState.getVehicles()) {
+
+                                        if (other == vehicle) {
+                                            continue;
+                                        }
+
+                                        if (other.getOrientation() == Orientation.HORIZONTAL) {
+
+                                            for (int i = 0; i < vehicle.getLength(); i++) {
+
+                                                int targetCol = newCol + i;
+
+                                                if (vehicle.getRow() == other.getRow()) {
+
+                                                    for (int j = 0; j < other.getLength(); j++) {
+
+                                                        if (targetCol == other.getCol() + j) {
+                                                            collision = true;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    if (!collision) {
+                                        vehicle.setCol(newCol);
+                                    } else {
+                                        System.out.println("Masik jarmube utkozne!");
+                                    }
 
                                 } else {
                                     System.out.println("Ervenytelen lepes!");

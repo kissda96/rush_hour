@@ -66,4 +66,8 @@ public class Board {
             }
         }
     }
+
+    public boolean isOccupied(int row, int col) {
+        return board[row][col] != '.';
+    }
 }

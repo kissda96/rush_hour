@@ -11,8 +11,8 @@
     },
     {
       "id": "B",
-      "row": 4,
-      "col": 9,
+      "row": 2,
+      "col": 8,
       "length": 2,
       "orientation": "HORIZONTAL"
     }
