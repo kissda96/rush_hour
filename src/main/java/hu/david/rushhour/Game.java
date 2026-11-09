@@ -44,6 +44,7 @@ public class Game {
             board.printBoard();
 
             Scanner scanner = new Scanner(System.in);
+            AIPlayer aiPlayer = new AIPlayer();
 
             while (true) {
 
@@ -129,6 +130,15 @@ public class Game {
                             break;
                         }
                     }
+
+                    board.clearBoard();
+                    board.placeVehicles(gameState.getVehicles());
+
+                    System.out.println();
+                    board.printBoard();
+                    aiPlayer.makeMove(
+                            gameState.getVehicles(),
+                            gameState);
 
                     board.clearBoard();
                     board.placeVehicles(gameState.getVehicles());
