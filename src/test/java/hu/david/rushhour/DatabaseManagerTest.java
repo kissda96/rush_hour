@@ -7,22 +7,32 @@ import static org.junit.jupiter.api.Assertions.*;
 class DatabaseManagerTest {
 
     @Test
-    void addWinShouldNotThrowException() {
-
-        DatabaseManager manager =
-                new DatabaseManager();
-
-        assertDoesNotThrow(() ->
-                manager.addWin("TESZT"));
-    }
-
-    @Test
-    void showScoreboardShouldNotThrowException() {
+    void addWinShouldWork() {
 
         DatabaseManager manager =
                 new DatabaseManager();
 
         assertDoesNotThrow(
-                manager::showScoreboard);
+                () -> manager.addWin("TESZT")
+        );
+    }
+
+    @Test
+    void showScoreboardShouldWork() {
+
+        DatabaseManager manager =
+                new DatabaseManager();
+
+        assertDoesNotThrow(
+                manager::showScoreboard
+        );
+    }
+
+    @Test
+    void constructorShouldWork() {
+
+        assertDoesNotThrow(
+                DatabaseManager::new
+        );
     }
 }

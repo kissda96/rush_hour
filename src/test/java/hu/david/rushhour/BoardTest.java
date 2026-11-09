@@ -13,4 +13,13 @@ class BoardTest {
 
         assertNotNull(board);
     }
+    @Test
+    void clearBoardShouldWork() {
+
+        Board board = new Board(6, 12);
+
+        assertDoesNotThrow(
+                board::clearBoard
+        );
+    }
 }

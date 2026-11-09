@@ -10,8 +10,19 @@ public class AIPlayer {
     public void makeMove(List<Vehicle> vehicles,
                          GameState gameState) {
 
-        Vehicle vehicle =
-                vehicles.get(random.nextInt(vehicles.size()));
+        Vehicle vehicle = null;
+
+        for (Vehicle v : vehicles) {
+
+            if (v.getId().equals("B")) {
+                vehicle = v;
+                break;
+            }
+        }
+
+        if (vehicle == null) {
+            return;
+        }
 
         int distance;
 

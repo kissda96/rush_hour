@@ -7,10 +7,14 @@ import static org.junit.jupiter.api.Assertions.*;
 class JsonLoaderTest {
 
     @Test
-    void loadShouldNotThrowException() {
+    void loadShouldReturnGameStateOrNull() {
 
         JsonLoader loader = new JsonLoader();
 
-        assertDoesNotThrow(loader::load);
+        GameState state = loader.load();
+
+        assertTrue(
+                state == null || state.getRows() > 0
+        );
     }
 }
