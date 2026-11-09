@@ -135,6 +135,19 @@ public class Game {
 
                     System.out.println();
                     board.printBoard();
+                    for (Vehicle vehicle : gameState.getVehicles()) {
+
+                        if (vehicle.getId().equals("A")) {
+
+                            if (vehicle.getCol() + vehicle.getLength()
+                                    == gameState.getCols()) {
+
+                                System.out.println();
+                                System.out.println("A jatekos nyert!");
+                                return;
+                            }
+                        }
+                    }
                 }
             }
 
