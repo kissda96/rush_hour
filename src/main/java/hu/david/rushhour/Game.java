@@ -44,6 +44,11 @@ public class Game {
             board.printBoard();
 
             Scanner scanner = new Scanner(System.in);
+            DatabaseManager databaseManager =
+                    new DatabaseManager();
+
+            System.out.print("Jatekos neve: ");
+            String playerName = scanner.nextLine();
             AIPlayer aiPlayer = new AIPlayer();
 
             while (true) {
@@ -154,6 +159,7 @@ public class Game {
 
                                 System.out.println();
                                 System.out.println("A jatekos nyert!");
+                                databaseManager.addWin(playerName);
                                 return;
                             }
                         }
