@@ -51,6 +51,7 @@ public class Game {
             String playerName = scanner.nextLine();
             AIPlayer aiPlayer = new AIPlayer();
             JsonSaver jsonSaver = new JsonSaver();
+            JsonLoader jsonLoader = new JsonLoader();
 
 
             while (true) {
@@ -69,6 +70,26 @@ public class Game {
                 }
                 if (command.equalsIgnoreCase("save")) {
                     jsonSaver.save(gameState);
+                    continue;
+                }
+                if (command.equalsIgnoreCase("load")) {
+
+                    GameState loadedState = jsonLoader.load();
+
+                    if (loadedState != null) {
+
+                        gameState = loadedState;
+
+                        board = new Board(
+                                gameState.getRows(),
+                                gameState.getCols());
+
+                        board.placeVehicles(gameState.getVehicles());
+
+                        System.out.println();
+                        board.printBoard();
+                    }
+
                     continue;
                 }
                 String[] parts = command.split(" ");
