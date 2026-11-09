@@ -50,6 +50,8 @@ public class Game {
             System.out.print("Jatekos neve: ");
             String playerName = scanner.nextLine();
             AIPlayer aiPlayer = new AIPlayer();
+            JsonSaver jsonSaver = new JsonSaver();
+
 
             while (true) {
 
@@ -65,7 +67,10 @@ public class Game {
                     databaseManager.showScoreboard();
                     continue;
                 }
-
+                if (command.equalsIgnoreCase("save")) {
+                    jsonSaver.save(gameState);
+                    continue;
+                }
                 String[] parts = command.split(" ");
 
                 if (parts.length == 3 &&
