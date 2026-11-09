@@ -61,6 +61,10 @@ public class Game {
                 if (command.equalsIgnoreCase("exit")) {
                     break;
                 }
+                if (command.equalsIgnoreCase("score")) {
+                    databaseManager.showScoreboard();
+                    continue;
+                }
 
                 String[] parts = command.split(" ");
 

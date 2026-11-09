@@ -58,4 +58,32 @@ public class DatabaseManager {
             e.printStackTrace();
         }
     }
+
+    public void showScoreboard() {
+
+        try (Connection connection =
+                     DriverManager.getConnection(URL);
+             Statement statement =
+                     connection.createStatement()) {
+
+            var resultSet =
+                    statement.executeQuery(
+                            "SELECT name, wins FROM players ORDER BY wins DESC");
+
+            System.out.println();
+            System.out.println("=== HIGH SCORE ===");
+
+            while (resultSet.next()) {
+
+                System.out.println(
+                        resultSet.getString("name")
+                                + " - "
+                                + resultSet.getInt("wins")
+                                + " gyozelem");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
